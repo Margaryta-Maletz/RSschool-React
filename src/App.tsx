@@ -2,33 +2,48 @@ import './App.css';
 import { PureComponent } from 'react';
 import Main from './components/main/Main';
 import Header from './components/header/Header';
+import People from './services/SwapService';
+import { IPeople } from './models/people';
 
-class App extends PureComponent {
-    state: {searchInput: string};
+type State = { searchInput: string; people: IPeople };
+type Props = unknown;
 
-    constructor() {
-        super({});
+class App extends PureComponent<Props, State> {
+  constructor(props: Props) {
+    super(props);
 
-        this.state = {searchInput: ''};
-        this.handleClick = this.handleClick.bind(this)
+    this.state = { searchInput: '', people: {} as IPeople };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  async componentDidMount() {
+    const searchInput = localStorage.getItem('searchInput');
+
+    await People.getPeople(searchInput).then((res) => this.setState({ searchInput: searchInput ?? '', people: res }));
+  }
+
+  async handleClick(search: string) {
+    const { searchInput } = this.state;
+    const trimSearch = search.trim();
+
+    if (searchInput !== trimSearch) {
+      this.setState(() => ({ searchInput: trimSearch }));
+      localStorage.setItem('searchInput', trimSearch);
+
+      await People.getPeople(trimSearch).then((res) => this.setState({ searchInput: trimSearch ?? '', people: res }));
     }
+  }
 
-    componentDidMount() {
-        this.setState({searchInput: localStorage.getItem('searchInput') ?? ''})
-    }
+  render() {
+    const {
+      searchInput,
+      people: { results },
+    } = this.state;
 
-    handleClick(search: string) {
-        if (this.state?.searchInput !== search) {
-            this.setState(() => ({searchInput: search}))
-            localStorage.setItem('searchInput', search);
-        }
-    }
-
-    render() {
     return (
       <>
-        <Header defaultValue={this.state.searchInput} handleClick={this.handleClick}/>
-        <Main />
+        <Header defaultValue={searchInput} handleClick={this.handleClick} />
+        <Main list={results ?? []} />
       </>
     );
   }
