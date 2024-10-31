@@ -16,3 +16,10 @@ export interface IPeople {
   previous: string | null;
   results: ICharacter[];
 }
+
+export const initialPeople = {
+  count: 0,
+  next: null,
+  previous: null,
+  results: [],
+};

@@ -1,4 +1,4 @@
-import { ICharacter, IPeople } from '../models/people';
+import { ICharacter, IPeople, initialPeople } from '../models/people';
 
 const BASE_URL = 'https://swapi.dev/api/people/';
 
@@ -8,7 +8,7 @@ class People {
 
     return fetch(url).then(
       (res) => res.json(),
-      (err) => console.error(err)
+        () => initialPeople
     );
   }
 
@@ -17,7 +17,7 @@ class People {
 
     return fetch(url).then(
       (res) => res.json(),
-      (err) => console.error(err)
+      () => initialPeople
     );
   }
 }

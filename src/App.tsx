@@ -1,4 +1,5 @@
-import { PureComponent } from 'react';
+import { Component } from 'react';
+import ErrorBoundary from './components/error-boundary/ErrorBoundary';
 import Header from './components/header/Header';
 import Main from './components/main/Main';
 import Spinner from './components/spinner/Spinner';
@@ -9,7 +10,7 @@ import './App.css';
 type State = { searchInput: string; people: IPeople; isLoading: boolean };
 type Props = unknown;
 
-class App extends PureComponent<Props, State> {
+class App extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
@@ -18,12 +19,10 @@ class App extends PureComponent<Props, State> {
   }
 
   async componentDidMount() {
-    this.setState((prev) => ({ ...prev, isLoading: true }));
     const searchInput = localStorage.getItem('searchInput');
+    this.setState({ searchInput: searchInput ?? '', isLoading: true });
 
-    await People.getPeople(searchInput).then((res) =>
-      this.setState({ searchInput: searchInput ?? '', people: res, isLoading: false })
-    );
+    await People.getPeople(searchInput).then((res) => this.setState({ people: res, isLoading: false }));
   }
 
   async handleClick(search: string) {
@@ -31,11 +30,11 @@ class App extends PureComponent<Props, State> {
     const trimSearch = search.trim();
 
     if (searchInput !== trimSearch) {
-      this.setState((prev) => ({ ...prev, isLoading: true }));
+      this.setState({ isLoading: true });
       localStorage.setItem('searchInput', trimSearch);
 
       await People.getPeople(trimSearch).then((res) =>
-        this.setState({ searchInput: trimSearch ?? '', people: res, isLoading: false })
+        this.setState({ searchInput: searchInput ?? '', people: res, isLoading: false })
       );
     }
   }
@@ -43,15 +42,17 @@ class App extends PureComponent<Props, State> {
   render() {
     const {
       searchInput,
-      people: { results },
+      people: { results, previous, next, count },
       isLoading,
     } = this.state;
 
+    const isError = previous === null && next === null && count === 0;
+
     return (
-      <>
+      <ErrorBoundary fallback={<p>Something went wrong</p>}>
         <Header defaultValue={searchInput} handleClick={this.handleClick} />
-        {isLoading ? <Spinner /> : <Main list={results ?? []} />}
-      </>
+        {isLoading ? <Spinner /> : (isError ? <div>API Error</div> : <Main list={results ?? []} />)}
+      </ErrorBoundary>
     );
   }
 }
