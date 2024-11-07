@@ -34,7 +34,7 @@ class App extends Component<Props, State> {
       localStorage.setItem('searchInput', trimSearch);
 
       await People.getPeople(trimSearch).then((res) =>
-        this.setState({ searchInput: searchInput ?? '', people: res, isLoading: false })
+        this.setState({ searchInput: trimSearch ?? '', people: res, isLoading: false })
       );
     }
   }
@@ -51,7 +51,8 @@ class App extends Component<Props, State> {
     return (
       <ErrorBoundary fallback={<p>Something went wrong</p>}>
         <Header defaultValue={searchInput} handleClick={this.handleClick} />
-        {isLoading ? <Spinner /> : (isError ? <div>API Error</div> : <Main list={results ?? []} />)}
+        {isLoading && <Spinner />}
+        {!isLoading && isError ? <div>API Error</div> : <Main list={results ?? []} />}
       </ErrorBoundary>
     );
   }

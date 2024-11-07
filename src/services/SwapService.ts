@@ -8,7 +8,7 @@ class People {
 
     return fetch(url).then(
       (res) => res.json(),
-        () => initialPeople
+      () => initialPeople
     );
   }
 
