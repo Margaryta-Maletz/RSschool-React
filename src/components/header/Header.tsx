@@ -23,7 +23,7 @@ class Header extends PureComponent<HeaderProps, State> {
     const { hasError } = this.state;
 
     if (hasError) {
-      throw new Error('Error happens!');
+      throw new Error('Test Error boundary!');
     }
 
     return (
