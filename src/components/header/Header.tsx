@@ -1,4 +1,5 @@
-import { createRef, PureComponent, RefObject } from 'react';
+import { createRef, KeyboardEventHandler, PureComponent, RefObject } from 'react';
+import './Header.css';
 
 type HeaderProps = {
   defaultValue: string;
@@ -18,6 +19,15 @@ class Header extends PureComponent<HeaderProps, State> {
     this.state = { hasError: false };
   }
 
+  handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
+    if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+      const { handleClick } = this.props;
+
+      event.preventDefault();
+      handleClick(this.inputRef.current?.value ?? '');
+    }
+  };
+
   render() {
     const { defaultValue, handleClick } = this.props;
     const { hasError } = this.state;
@@ -27,12 +37,12 @@ class Header extends PureComponent<HeaderProps, State> {
     }
 
     return (
-      <div>
-        <input type="text" ref={this.inputRef} defaultValue={defaultValue} />
-        <button type="button" onClick={() => handleClick(this.inputRef.current?.value ?? '')}>
+      <div className="header-container">
+        <input type="text" ref={this.inputRef} defaultValue={defaultValue} onKeyDown={this.handleKeyDown} />
+        <button className="button" type="button" onClick={() => handleClick(this.inputRef.current?.value ?? '')}>
           Search
         </button>
-        <button type="button" onClick={() => this.setState({ hasError: true })}>
+        <button className="button error" type="button" onClick={() => this.setState({ hasError: true })}>
           Throw Error
         </button>
       </div>
