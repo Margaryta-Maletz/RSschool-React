@@ -1,4 +1,4 @@
-import { createRef, KeyboardEventHandler, PureComponent, RefObject } from 'react';
+import { KeyboardEventHandler, useRef, useState } from 'react';
 import './Header.css';
 
 type HeaderProps = {
@@ -6,48 +6,32 @@ type HeaderProps = {
   handleClick: (search: string) => void;
 };
 
-type State = {
-  hasError: boolean;
-};
+function Header({ defaultValue, handleClick }: HeaderProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [hasError, setHasError] = useState(false);
 
-class Header extends PureComponent<HeaderProps, State> {
-  inputRef: RefObject<HTMLInputElement>;
-
-  constructor(props: HeaderProps) {
-    super(props);
-    this.inputRef = createRef();
-    this.state = { hasError: false };
-  }
-
-  handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
+  const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.code === 'Enter' || event.code === 'NumpadEnter') {
-      const { handleClick } = this.props;
-
       event.preventDefault();
-      handleClick(this.inputRef.current?.value ?? '');
+      handleClick(inputRef.current?.value ?? '');
     }
   };
 
-  render() {
-    const { defaultValue, handleClick } = this.props;
-    const { hasError } = this.state;
-
-    if (hasError) {
-      throw new Error('Test Error boundary!');
-    }
-
-    return (
-      <div className="header-container">
-        <input type="text" ref={this.inputRef} defaultValue={defaultValue} onKeyDown={this.handleKeyDown} />
-        <button className="button" type="button" onClick={() => handleClick(this.inputRef.current?.value ?? '')}>
-          Search
-        </button>
-        <button className="button error" type="button" onClick={() => this.setState({ hasError: true })}>
-          Throw Error
-        </button>
-      </div>
-    );
+  if (hasError) {
+    throw new Error('Test Error boundary!');
   }
+
+  return (
+    <div className="header-container">
+      <input type="text" ref={inputRef} defaultValue={defaultValue} onKeyDown={handleKeyDown} />
+      <button className="button" type="button" onClick={() => handleClick(inputRef.current?.value ?? '')}>
+        Search
+      </button>
+      <button className="button error" type="button" onClick={() => setHasError(true)}>
+        Throw Error
+      </button>
+    </div>
+  );
 }
 
 export default Header;

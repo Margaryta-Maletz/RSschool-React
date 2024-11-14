@@ -12,12 +12,12 @@ export interface ICharacter {
 
 export interface IPeople {
   count: number;
-  next: string;
+  next: string | null;
   previous: string | null;
   results: ICharacter[];
 }
 
-export const initialPeople = {
+export const initialPeople: IPeople = {
   count: 0,
   next: null,
   previous: null,
