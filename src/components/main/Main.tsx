@@ -1,37 +1,19 @@
+import { useState } from 'react';
 import { ICharacter } from '../../models/people';
 import './Main.css';
+import CardList from '../card-list';
+import DetailedCard from '../detailed-card';
 
 type MainProps = {
   list: ICharacter[];
 };
 
 function Main({ list }: MainProps) {
+  const [id, setId] = useState<number | null>(null);
   return (
-    <div className="main-container">
-      {list.map((item) => (
-        <div className="card" key={item.name}>
-          <div>
-            <strong>name: </strong>
-            {item.name}
-          </div>
-          <div>
-            <strong>gender: </strong>
-            {item.gender}
-          </div>
-          <div>
-            <strong>birth year: </strong>
-            {item.birth_year}
-          </div>
-          <div>
-            <strong>height: </strong>
-            {item.height}
-          </div>
-          <div>
-            <strong>mass: </strong>
-            {item.mass}
-          </div>
-        </div>
-      ))}
+    <div className="container">
+      <CardList list={list} setId={setId} />
+      {id && <DetailedCard id={id} onClose={() => setId(null)} />}
     </div>
   );
 }
