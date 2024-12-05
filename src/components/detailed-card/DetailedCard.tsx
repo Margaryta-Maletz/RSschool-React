@@ -1,32 +1,36 @@
 import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router';
 import { ICharacter } from '../../models/people';
 import './DetailedCard.css';
 import People from '../../services/SwapService';
 import Spinner from '../spinner';
 
-type DetailedCardProps = {
-  id: number;
-  onClose: () => void;
-};
-
-function DetailedCard({ id, onClose }: DetailedCardProps) {
+function DetailedCard() {
   const [item, setItem] = useState<ICharacter | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    setIsLoading(true);
-    (async () => {
-      await People.getCharacter(id).then((res) => {
-        setItem(res);
-        setIsLoading(false);
-      });
-    })();
+    if (id) {
+      setIsLoading(true);
+      (async () => {
+        await People.getCharacter(Number(id)).then((res) => {
+          setItem(res);
+          setIsLoading(false);
+        });
+      })();
+    }
   }, [id]);
+
+  const handleClose = () => {
+    navigate('/');
+  };
 
   return !item || isLoading ? (
     <Spinner />
   ) : (
-    <div className="card">
+    <div className="detailed-card">
       <div>
         <strong>name: </strong>
         {item.name}
@@ -47,7 +51,12 @@ function DetailedCard({ id, onClose }: DetailedCardProps) {
         <strong>mass: </strong>
         {item.mass}
       </div>
-      <button className="button" type="button" onClick={onClose}>
+      <button
+        className="button"
+        type="button"
+        onClick={handleClose}
+        style={{ backgroundColor: 'green', padding: '0 20px' }}
+      >
         Close
       </button>
     </div>

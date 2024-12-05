@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router';
 import ErrorBoundary from './components/error-boundary';
 import Header from './components/header';
 import Main from './components/main';
@@ -14,6 +15,8 @@ function App() {
   const [savedInput, setNewValue] = useLocalStorage(KEY);
   const [people, setPeople] = useState<IPeople>(initialPeople);
   const [isLoading, setIsLoading] = useState(false);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoading(true);
@@ -26,6 +29,10 @@ function App() {
   }, [savedInput]);
 
   const handleClick = (search: string) => {
+    if (id) {
+      navigate('/');
+    }
+
     const trimSearch = search.trim();
 
     if (savedInput !== trimSearch) {

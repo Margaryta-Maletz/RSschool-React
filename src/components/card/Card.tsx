@@ -1,15 +1,17 @@
+import { useNavigate } from 'react-router';
 import { ICharacter } from '../../models/people';
 import './Card.css';
 
 type CardProps = {
   item: ICharacter;
-  setId: (id: number) => void;
 };
 
-function Card({ item, setId }: CardProps) {
+function Card({ item }: CardProps) {
+  const navigate = useNavigate();
+
   const handleClick = (url: string) => {
     const id = Number((url.match(/\d+/g) ?? [0])[0]);
-    setId(id);
+    navigate(`/${id}`);
   };
   return (
     <button type="button" className="card" onClick={() => handleClick(item.url)}>

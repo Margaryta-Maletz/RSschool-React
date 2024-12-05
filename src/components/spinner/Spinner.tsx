@@ -1,5 +1,5 @@
 function Spinner() {
-  return <div>...Hold on, loading in progress</div>;
+  return <div style={{ minWidth: '320px' }}>...Hold on, loading in progress</div>;
 }
 
 export default Spinner;

@@ -6,4 +6,5 @@
   border-radius: 5px;
   min-width: 210px;
   align-items: flex-start;
+  row-gap: 5px;
 }
