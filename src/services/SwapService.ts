@@ -12,8 +12,8 @@ class People {
     );
   }
 
-  static getPeople(search: string | null): Promise<IPeople> {
-    const url = search ? `${BASE_URL}/?search=${search}&page=1` : BASE_URL;
+  static getPeople(search: string | null, page: number): Promise<IPeople> {
+    const url = search ? `${BASE_URL}/?search=${search}&page=${page}` : `${BASE_URL}/?page=${page}`;
 
     return fetch(url).then(
       (res) => res.json(),

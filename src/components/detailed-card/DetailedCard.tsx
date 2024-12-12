@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
 import { ICharacter } from '../../models/people';
 import './DetailedCard.css';
 import People from '../../services/SwapService';
@@ -10,6 +11,8 @@ function DetailedCard() {
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const page = searchParams.get('page') ?? '1';
 
   useEffect(() => {
     if (id) {
@@ -24,7 +27,7 @@ function DetailedCard() {
   }, [id]);
 
   const handleClose = () => {
-    navigate('/');
+    navigate(`/?page=${page}`);
   };
 
   return !item || isLoading ? (

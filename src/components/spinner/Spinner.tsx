@@ -1,5 +1,9 @@
 function Spinner() {
-  return <div style={{ minWidth: '320px' }}>...Hold on, loading in progress</div>;
+  return (
+    <div style={{ minWidth: '320px', position: 'absolute', margin: '0 auto', padding: '0 100px', top: 70 }}>
+      ...Hold on, loading in progress
+    </div>
+  );
 }
 
 export default Spinner;

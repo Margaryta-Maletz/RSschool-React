@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
 import { ICharacter } from '../../models/people';
 import './Card.css';
 
@@ -8,10 +9,13 @@ type CardProps = {
 
 function Card({ item }: CardProps) {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const page = searchParams.get('page') ?? '1';
 
   const handleClick = (url: string) => {
     const id = Number((url.match(/\d+/g) ?? [0])[0]);
-    navigate(`/${id}`);
+
+    navigate(`/${id}?page=${page}`);
   };
   return (
     <button type="button" className="card" onClick={() => handleClick(item.url)}>
