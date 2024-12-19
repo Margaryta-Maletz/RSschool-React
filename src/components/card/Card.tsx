@@ -13,7 +13,7 @@ function Card({ item }: CardProps) {
   const page = searchParams.get('page') ?? '1';
 
   const handleClick = (url: string) => {
-    const id = Number((url.match(/\d+/g) ?? [0])[0]);
+    const id = Number((url.match(/\d+/g) ?? [0, 0])[1]);
 
     navigate(`/${id}?page=${page}`);
   };
