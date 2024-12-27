@@ -30,7 +30,14 @@ function CardList({ list }: CardListProps) {
   };
 
   return (
-    <section role="button" tabIndex={0} className="list-container" onClick={handleClick} onKeyDown={handleKeyDown}>
+    <section
+      role="button"
+      data-testid="section"
+      tabIndex={0}
+      className="list-container"
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+    >
       {list.map((item) => (
         <Card key={item.name} item={item} />
       ))}

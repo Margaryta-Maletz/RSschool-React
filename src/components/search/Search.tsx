@@ -18,7 +18,7 @@ function Search({ defaultValue, handleClick }: HeaderProps) {
 
   return (
     <div>
-      <input type="text" ref={inputRef} defaultValue={defaultValue} onKeyDown={handleKeyDown} />
+      <input type="text" data-testid="input" ref={inputRef} defaultValue={defaultValue} onKeyDown={handleKeyDown} />
       <button className="button" type="button" onClick={() => handleClick(inputRef.current?.value ?? '')}>
         Search
       </button>

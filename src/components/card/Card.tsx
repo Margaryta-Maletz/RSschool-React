@@ -18,7 +18,7 @@ function Card({ item }: CardProps) {
     navigate(`/${id}?page=${page}`);
   };
   return (
-    <button type="button" className="card" onClick={() => handleClick(item.url)}>
+    <button type="button" data-testid="openDetailedCardButton" className="card" onClick={() => handleClick(item.url)}>
       <div>
         <strong>name: </strong>
         {item.name}
