@@ -1,30 +1,15 @@
-import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
-import { ICharacter } from '../../models/people';
 import './DetailedCard.css';
-import People from '../../services/SwapService';
 import Spinner from '../spinner';
+import { useGetCharacterQuery } from '../../services/SwapService';
 
 function DetailedCard() {
-  const [item, setItem] = useState<ICharacter | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const page = searchParams.get('page') ?? '1';
-
-  useEffect(() => {
-    if (id) {
-      setIsLoading(true);
-      (async () => {
-        await People.getCharacter(Number(id)).then((res) => {
-          setItem(res);
-          setIsLoading(false);
-        });
-      })();
-    }
-  }, [id]);
+  const { data: item, isLoading } = useGetCharacterQuery(id);
 
   const handleClose = () => {
     navigate(`/?page=${page}`);

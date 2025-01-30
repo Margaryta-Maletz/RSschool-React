@@ -1,35 +1,23 @@
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
 import ErrorBoundary from './components/error-boundary';
 import Header from './components/header';
 import Main from './components/main';
 import Spinner from './components/spinner';
-import People from './services/SwapService';
-import { initialPeople, IPeople } from './models/people';
 import './App.css';
 import useLocalStorage from './hooks/useLocalStorage';
+import { useGetPeopleQuery } from './services/SwapService';
+import { IPeople } from './models/people';
 
 const KEY = 'searchInput';
 
 function App() {
   const [savedInput, setNewValue] = useLocalStorage(KEY);
-  const [people, setPeople] = useState<IPeople>(initialPeople);
-  const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get('page') ?? '1';
   const navigate = useNavigate();
-
-  useEffect(() => {
-    setIsLoading(true);
-    (async () => {
-      await People.getPeople(savedInput || '', Number(page)).then((res) => {
-        setPeople(res);
-        setIsLoading(false);
-      });
-    })();
-  }, [savedInput, page, setSearchParams]);
+  const { data: people, isLoading } = useGetPeopleQuery({ search: savedInput, page });
 
   const handleClick = (search: string) => {
     if (id) {
@@ -44,7 +32,7 @@ function App() {
     }
   };
 
-  const { results, previous, next, count } = people;
+  const { results, previous, next, count } = people as IPeople;
   const isError = previous === null && next === null && count === 0;
 
   return (
