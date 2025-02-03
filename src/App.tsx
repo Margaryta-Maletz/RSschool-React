@@ -7,7 +7,6 @@ import Spinner from './components/spinner';
 import './App.css';
 import useLocalStorage from './hooks/useLocalStorage';
 import { useGetPeopleQuery } from './services/SwapService';
-import { IPeople } from './models/people';
 
 const KEY = 'searchInput';
 
@@ -32,14 +31,17 @@ function App() {
     }
   };
 
-  const { results, previous, next, count } = people as IPeople;
-  const isError = previous === null && next === null && count === 0;
+  const isError = people?.previous === null && people?.next === null && people?.count === 0;
 
   return (
     <ErrorBoundary fallback={<p>Something went wrong</p>}>
       <Header defaultValue={savedInput || ''} handleClick={handleClick} />
       {isLoading && <Spinner />}
-      {!isLoading && isError ? <div>API Error</div> : <Main list={results ?? []} all={Math.ceil(count / 10)} />}
+      {!isLoading && isError ? (
+        <div>API Error</div>
+      ) : (
+        <Main list={people?.results ?? []} all={Math.ceil(people?.count ?? 0 / 10)} />
+      )}
     </ErrorBoundary>
   );
 }

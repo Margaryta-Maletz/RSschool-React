@@ -1,10 +1,16 @@
 import { useParams, useNavigate } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
 import './DetailedCard.css';
+import { useDispatch, useSelector } from 'react-redux';
 import Spinner from '../spinner';
 import { useGetCharacterQuery } from '../../services/SwapService';
+import { addCheckedCard, deleteCheckedCard } from '../../store/checkedCardSlice';
+import { ICharacter } from '../../models/people';
+import checkedCardsSelector from '../../store/selectors';
 
 function DetailedCard() {
+  const dispatch = useDispatch();
+  const checkedCards: ICharacter[] = useSelector(checkedCardsSelector);
   const { id } = useParams();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -19,6 +25,11 @@ function DetailedCard() {
     <Spinner />
   ) : (
     <div className="detailed-card">
+      <input
+        type="checkbox"
+        checked={!!checkedCards.find((char) => char.url === item.url)}
+        onChange={(e) => (e.target.checked ? dispatch(addCheckedCard(item)) : dispatch(deleteCheckedCard(item)))}
+      />
       <div>
         <strong>name: </strong>
         {item.name}
