@@ -1,61 +1,59 @@
-import { Component } from 'react';
-import ErrorBoundary from './components/error-boundary/ErrorBoundary';
-import Header from './components/header/Header';
-import Main from './components/main/Main';
-import Spinner from './components/spinner/Spinner';
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
+import ErrorBoundary from './components/error-boundary';
+import Header from './components/header';
+import Main from './components/main';
+import Spinner from './components/spinner';
 import People from './services/SwapService';
-import { IPeople } from './models/people';
+import { initialPeople, IPeople } from './models/people';
 import './App.css';
+import useLocalStorage from './hooks/useLocalStorage';
 
-type State = { searchInput: string; people: IPeople; isLoading: boolean };
-type Props = unknown;
+const KEY = 'searchInput';
 
-class App extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
+function App() {
+  const [savedInput, setNewValue] = useLocalStorage(KEY);
+  const [people, setPeople] = useState<IPeople>(initialPeople);
+  const [isLoading, setIsLoading] = useState(false);
+  const { id } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get('page') ?? '1';
+  const navigate = useNavigate();
 
-    this.state = { searchInput: '', people: {} as IPeople, isLoading: false };
-    this.handleClick = this.handleClick.bind(this);
-  }
+  useEffect(() => {
+    setIsLoading(true);
+    (async () => {
+      await People.getPeople(savedInput || '', Number(page)).then((res) => {
+        setPeople(res);
+        setIsLoading(false);
+      });
+    })();
+  }, [savedInput, page, setSearchParams]);
 
-  async componentDidMount() {
-    const searchInput = localStorage.getItem('searchInput');
-    this.setState({ searchInput: searchInput ?? '', isLoading: true });
+  const handleClick = (search: string) => {
+    if (id) {
+      navigate(`/?page=${page}`);
+    }
 
-    await People.getPeople(searchInput).then((res) => this.setState({ people: res, isLoading: false }));
-  }
-
-  async handleClick(search: string) {
-    const { searchInput } = this.state;
     const trimSearch = search.trim();
 
-    if (searchInput !== trimSearch) {
-      this.setState({ isLoading: true });
-      localStorage.setItem('searchInput', trimSearch);
-
-      await People.getPeople(trimSearch).then((res) =>
-        this.setState({ searchInput: trimSearch ?? '', people: res, isLoading: false })
-      );
+    if (savedInput !== trimSearch) {
+      setNewValue(trimSearch);
+      setSearchParams((prev) => ({ ...prev, page: '1' }));
     }
-  }
+  };
 
-  render() {
-    const {
-      searchInput,
-      people: { results, previous, next, count },
-      isLoading,
-    } = this.state;
+  const { results, previous, next, count } = people;
+  const isError = previous === null && next === null && count === 0;
 
-    const isError = previous === null && next === null && count === 0;
-
-    return (
-      <ErrorBoundary fallback={<p>Something went wrong</p>}>
-        <Header defaultValue={searchInput} handleClick={this.handleClick} />
-        {isLoading && <Spinner />}
-        {!isLoading && isError ? <div>API Error</div> : <Main list={results ?? []} />}
-      </ErrorBoundary>
-    );
-  }
+  return (
+    <ErrorBoundary fallback={<p>Something went wrong</p>}>
+      <Header defaultValue={savedInput || ''} handleClick={handleClick} />
+      {isLoading && <Spinner />}
+      {!isLoading && isError ? <div>API Error</div> : <Main list={results ?? []} all={Math.ceil(count / 10)} />}
+    </ErrorBoundary>
+  );
 }
 
 export default App;
