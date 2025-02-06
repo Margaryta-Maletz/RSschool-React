@@ -3,6 +3,7 @@ import { ICharacter } from '../../models/people';
 import './Main.css';
 import CardList from '../card-list';
 import Pagination from '../pagination';
+import Flyout from '../flyout';
 
 type MainProps = {
   list: ICharacter[];
@@ -15,8 +16,9 @@ function Main({ list, all }: MainProps) {
       <div className="main-container">
         <CardList list={list} />
         <Outlet />
+        <Flyout />
       </div>
-      <Pagination all={all} />
+      <Pagination all={Math.ceil(all / 10)} />
     </>
   );
 }

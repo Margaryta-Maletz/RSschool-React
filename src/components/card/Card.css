@@ -7,4 +7,6 @@
   min-width: 210px;
   align-items: flex-start;
   row-gap: 5px;
+  background-color: transparent;
+  color: inherit;
 }

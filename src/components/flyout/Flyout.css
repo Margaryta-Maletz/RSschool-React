@@ -1,0 +1,13 @@
+.flyout-container {
+  position: absolute;
+  bottom: 0;
+  right: calc((100% - 1200px) / 2);
+  display: flex;
+  padding: 10px;
+  border: 2px green solid;
+  background-color: green;
+  border-radius: 5px;
+  min-width: 210px;
+  align-items: center;
+  gap: 20px;
+}
