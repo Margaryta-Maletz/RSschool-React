@@ -1,8 +1,9 @@
 import { beforeEach, describe, expect, test, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import Search from '../components/search';
+import Wrapper from './Wrapper';
 
 const handleClick = vi.fn();
 const mockDefaultValue = 'test';
@@ -14,11 +15,11 @@ describe('Search', () => {
 
   test('renders Search', async () => {
     render(
-      <MemoryRouter initialEntries={['/']}>
+      <Wrapper>
         <Routes>
           <Route path="/" element={<Search defaultValue={mockDefaultValue} handleClick={handleClick} />} />
         </Routes>
-      </MemoryRouter>
+      </Wrapper>
     );
 
     const input = screen.getByTestId('input');
@@ -30,11 +31,11 @@ describe('Search', () => {
 
   test('push and type input in Search', async () => {
     render(
-      <MemoryRouter initialEntries={['/']}>
+      <Wrapper>
         <Routes>
           <Route path="/" element={<Search defaultValue={mockDefaultValue} handleClick={handleClick} />} />
         </Routes>
-      </MemoryRouter>
+      </Wrapper>
     );
 
     const input = screen.getByTestId('input');

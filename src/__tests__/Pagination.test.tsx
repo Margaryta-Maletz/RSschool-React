@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import { MemoryRouter } from 'react-router-dom';
 import Pagination from '../components/pagination';
+import Wrapper from './Wrapper';
 
 const mockNavigate = vi.fn();
 vi.mock('react-router', () => ({
@@ -12,9 +12,9 @@ vi.mock('react-router', () => ({
 describe('Pagination', () => {
   it('renders Pagination with disabled buttons', () => {
     render(
-      <MemoryRouter initialEntries={['/']}>
+      <Wrapper>
         <Pagination all={1} />
-      </MemoryRouter>
+      </Wrapper>
     );
     const buttonPrevious = screen.getByRole('button', { name: /Previous/i }) as HTMLButtonElement;
     const buttonNext = screen.getByRole('button', { name: /Next/i }) as HTMLButtonElement;
@@ -27,9 +27,9 @@ describe('Pagination', () => {
 
   it('renders Pagination 5 pages with enabled buttons', () => {
     render(
-      <MemoryRouter initialEntries={['/?page=3']}>
+      <Wrapper initialEntries={['/?page=3']}>
         <Pagination all={5} />
-      </MemoryRouter>
+      </Wrapper>
     );
     const buttonPrevious = screen.getByRole('button', { name: /Previous/i }) as HTMLButtonElement;
     const buttonNext = screen.getByRole('button', { name: /Next/i }) as HTMLButtonElement;
