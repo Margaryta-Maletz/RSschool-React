@@ -2,16 +2,11 @@ module.exports = {
   root: true,
   env: { browser: true, es2020: true },
   extends: [
-    'airbnb',
-    'airbnb-typescript',
-    'airbnb/hooks',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
+    'plugin:@next/next/recommended'
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'coverage'],
   parser: '@typescript-eslint/parser',
@@ -23,20 +18,9 @@ module.exports = {
   },
   plugins: ['react-refresh', 'react', '@typescript-eslint', 'react-compiler', 'prettier', 'import'],
   rules: {
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     '@typescript-eslint/no-explicit-any': 'error',
-    'react-compiler/react-compiler': 'error',
-    'react/static-property-placement': [
-      'warn',
-      'property assignment',
-      {
-        childContextTypes: 'static getter',
-        contextTypes: 'static public field',
-        contextType: 'static public field',
-        displayName: 'static public field',
-        defaultProps: 'static public field',
-      },
-    ],
+    'no-void': ["error", { 'allowAsStatement': true }],
+    'import/prefer-default-export': 'off' | 'warn' | 'error',
   },
   settings: {
     'import/resolver': {

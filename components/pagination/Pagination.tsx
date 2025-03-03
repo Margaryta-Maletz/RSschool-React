@@ -1,6 +1,7 @@
 
 /*import './Pagination.css';*/
-import {useRouter, useSearchParams} from "next/navigation";
+import {useSearchParams} from "next/navigation";
+import Link from "next/link";
 
 type MainProps = {
   all: number;
@@ -8,31 +9,19 @@ type MainProps = {
 
 function Pagination({ all }: MainProps) {
     const searchParams = useSearchParams();
-    const router = useRouter();
   const page = searchParams.get('page') ?? '1';
-  const setSearchParams = (shift: number = 1) => {
-      const newQueryParam = "new_value"; // Новое значение для параметра
-      const queryParamKey = "page";
-  }
+  const search = searchParams.get('search') ?? '';
 
   const current = Number(page);
   return (
     <div className="pagination-container">
-      <button
-        type="button"
-        disabled={current <= 1}
-        onClick={() => setSearchParams(-1)}
-      >
-        Previous
-      </button>
+        <Link href={`?search=${search}&page=${+page - 1}`} hidden={+page === 1}>
+            Previous
+        </Link>
       {`${current} / ${all}`}
-      <button
-        type="button"
-        disabled={current >= all}
-        onClick={() => setSearchParams()}
-      >
-        Next
-      </button>
+        <Link href={`?search=${search}&page=${+page + 1}`} hidden={+page === all}>
+            Next
+        </Link>
     </div>
   );
 }
