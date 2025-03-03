@@ -1,8 +1,6 @@
 import { KeyboardEventHandler, MouseEventHandler } from 'react';
-import { useNavigate } from 'react-router';
-import { useSearchParams } from 'react-router-dom';
-import { ICharacter } from '../../models/people';
-import './CardList.css';
+import { ICharacter } from '../../src/models/people';
+/*import './CardList.css';*/
 import Card from '../card';
 
 type CardListProps = {
@@ -10,13 +8,9 @@ type CardListProps = {
 };
 
 function CardList({ list }: CardListProps) {
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const page = searchParams.get('page') ?? '1';
-
   const handleClick: MouseEventHandler<HTMLElement> = (event) => {
     if (event.target === event.currentTarget) {
-      navigate(`/?page=${page}`);
+      /*navigate(`/?page=${page}`);*/
     }
   };
 
@@ -24,7 +18,7 @@ function CardList({ list }: CardListProps) {
     if (event.code === 'Enter' || event.code === 'NumpadEnter') {
       event.preventDefault();
       if (event.target === event.currentTarget) {
-        navigate(`/?page=${page}`);
+        /*navigate(`/?page=${page}`);*/
       }
     }
   };

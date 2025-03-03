@@ -1,29 +1,33 @@
-import { useParams, useNavigate } from 'react-router';
-import { useSearchParams } from 'react-router-dom';
 import './DetailedCard.css';
 import { useDispatch, useSelector } from 'react-redux';
 import Spinner from '../spinner';
-import { useGetCharacterQuery } from '../../services/SwapService';
-import { addCheckedCard, deleteCheckedCard } from '../../store/checkedCardSlice';
-import { ICharacter } from '../../models/people';
-import checkedCardsSelector from '../../store/selectors';
+import { addCheckedCard, deleteCheckedCard } from '../../src/store/checkedCardSlice';
+import { ICharacter } from '../../src/models/people';
+import checkedCardsSelector from '../../src/store/selectors';
 
 function DetailedCard() {
   const dispatch = useDispatch();
   const checkedCards: ICharacter[] = useSelector(checkedCardsSelector);
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const page = searchParams.get('page') ?? '1';
-  const { data: item, isLoading } = useGetCharacterQuery(id);
-
-  const handleClose = () => {
-    navigate(`/?page=${page}`);
+  const item =  {
+      name: 'Luke Skywalker',
+      height: '172',
+      mass: '77',
+      hair_color: 'blond',
+      skin_color: 'fair',
+      eye_color: 'blue',
+      birth_year: '19BBY',
+      gender: 'male',
+      url: 'https://swapi.py4e.com/api/people/1/',
   };
 
-  return !item || isLoading ? (
+  const handleClose = () => {
+    /*navigate(`/?page=${page}`);*/
+  };
+
+/*  return !item || isLoading ? (
     <Spinner />
-  ) : (
+  ) : */
+    return (
     <div className="detailed-card">
       <input
         type="checkbox"

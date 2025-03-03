@@ -1,20 +1,27 @@
-import { useSearchParams } from 'react-router-dom';
-import './Pagination.css';
+
+/*import './Pagination.css';*/
+import {useRouter, useSearchParams} from "next/navigation";
 
 type MainProps = {
   all: number;
 };
 
 function Pagination({ all }: MainProps) {
-  const [searchParams, setSearchParams] = useSearchParams();
+    const searchParams = useSearchParams();
+    const router = useRouter();
   const page = searchParams.get('page') ?? '1';
+  const setSearchParams = (shift: number = 1) => {
+      const newQueryParam = "new_value"; // Новое значение для параметра
+      const queryParamKey = "page";
+  }
+
   const current = Number(page);
   return (
     <div className="pagination-container">
       <button
         type="button"
         disabled={current <= 1}
-        onClick={() => setSearchParams((prev) => ({ ...prev, page: (current - 1).toString() }))}
+        onClick={() => setSearchParams(-1)}
       >
         Previous
       </button>
@@ -22,7 +29,7 @@ function Pagination({ all }: MainProps) {
       <button
         type="button"
         disabled={current >= all}
-        onClick={() => setSearchParams((prev) => ({ ...prev, page: (current + 1).toString() }))}
+        onClick={() => setSearchParams()}
       >
         Next
       </button>

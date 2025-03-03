@@ -1,26 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
-import { useSearchParams } from 'react-router-dom';
-import { ICharacter } from '../../models/people';
-import './Card.css';
-import { addCheckedCard, deleteCheckedCard } from '../../store/checkedCardSlice';
-import checkedCardsSelector from '../../store/selectors';
+import { ICharacter } from '../../src/models/people';
+/*import './Card.css';*/
+import { addCheckedCard, deleteCheckedCard } from '../../src/store/checkedCardSlice';
+import checkedCardsSelector from '../../src/store/selectors';
 
 type CardProps = {
   item: ICharacter;
 };
 
 function Card({ item }: CardProps) {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const checkedCards: ICharacter[] = useSelector(checkedCardsSelector);
-  const [searchParams] = useSearchParams();
-  const page = searchParams.get('page') ?? '1';
 
   const handleClick = (url: string) => {
     const id = Number((url.match(/\d+/g) ?? [0, 0])[1]);
 
-    navigate(`/${id}?page=${page}`);
+    /*navigate(`/${id}?page=${page}`);*/
   };
   return (
     <button type="button" data-testid="openDetailedCardButton" className="card" onClick={() => handleClick(item.url)}>

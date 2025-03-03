@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { ICharacter } from '../../models/people';
-import './Flyout.css';
-import checkedCardsSelector from '../../store/selectors';
-import { clearAllCheckedCards } from '../../store/checkedCardSlice';
+import { ICharacter } from '../../src/models/people';
+/*import './Flyout.css';*/
+import checkedCardsSelector from '../../src/store/selectors';
+import { clearAllCheckedCards } from '../../src/store/checkedCardSlice';
 
 function Flyout() {
   const dispatch = useDispatch();

@@ -1,6 +1,5 @@
-import { Outlet } from 'react-router';
-import { ICharacter } from '../../models/people';
-import './Main.css';
+import { ICharacter } from '../../src/models/people';
+/*import './Main.css';*/
 import CardList from '../card-list';
 import Pagination from '../pagination';
 import Flyout from '../flyout';
@@ -15,7 +14,7 @@ function Main({ list, all }: MainProps) {
     <>
       <div className="main-container">
         <CardList list={list} />
-        <Outlet />
+{/*        <Outlet />*/}
         <Flyout />
       </div>
       <Pagination all={Math.ceil(all / 10)} />

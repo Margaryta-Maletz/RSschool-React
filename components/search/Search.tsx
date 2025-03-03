@@ -1,5 +1,5 @@
 import { KeyboardEventHandler, useRef } from 'react';
-import './Search.css';
+/*import './Search.css';*/
 
 type HeaderProps = {
   defaultValue: string;
