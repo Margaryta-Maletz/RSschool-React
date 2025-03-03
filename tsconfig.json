@@ -29,8 +29,10 @@
     "vitest/globals"
   ],
   "include": [
-    "src",
-    ".eslintrc.cjs"
+    "src/**/*",
+    ".eslintrc.cjs",
+    "pages/**/*",
+    "components/**/*"
   ],
   "references": [
     {

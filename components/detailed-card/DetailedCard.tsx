@@ -1,6 +1,5 @@
 import './DetailedCard.css';
 import { useDispatch, useSelector } from 'react-redux';
-import Spinner from '../spinner';
 import { addCheckedCard, deleteCheckedCard } from '../../src/store/checkedCardSlice';
 import { ICharacter } from '../../src/models/people';
 import checkedCardsSelector from '../../src/store/selectors';
@@ -8,26 +7,26 @@ import checkedCardsSelector from '../../src/store/selectors';
 function DetailedCard() {
   const dispatch = useDispatch();
   const checkedCards: ICharacter[] = useSelector(checkedCardsSelector);
-  const item =  {
-      name: 'Luke Skywalker',
-      height: '172',
-      mass: '77',
-      hair_color: 'blond',
-      skin_color: 'fair',
-      eye_color: 'blue',
-      birth_year: '19BBY',
-      gender: 'male',
-      url: 'https://swapi.py4e.com/api/people/1/',
+  const item = {
+    name: 'Luke Skywalker',
+    height: '172',
+    mass: '77',
+    hair_color: 'blond',
+    skin_color: 'fair',
+    eye_color: 'blue',
+    birth_year: '19BBY',
+    gender: 'male',
+    url: 'https://swapi.py4e.com/api/people/1/',
   };
 
   const handleClose = () => {
     /*navigate(`/?page=${page}`);*/
   };
 
-/*  return !item || isLoading ? (
+  /*  return !item || isLoading ? (
     <Spinner />
   ) : */
-    return (
+  return (
     <div className="detailed-card">
       <input
         type="checkbox"

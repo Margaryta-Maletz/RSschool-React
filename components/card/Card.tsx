@@ -3,6 +3,8 @@ import { ICharacter } from '../../src/models/people';
 /*import './Card.css';*/
 import { addCheckedCard, deleteCheckedCard } from '../../src/store/checkedCardSlice';
 import checkedCardsSelector from '../../src/store/selectors';
+import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 
 type CardProps = {
   item: ICharacter;
@@ -11,11 +13,15 @@ type CardProps = {
 function Card({ item }: CardProps) {
   const dispatch = useDispatch();
   const checkedCards: ICharacter[] = useSelector(checkedCardsSelector);
+  const { push } = useRouter();
+  const searchParams = useSearchParams();
+  const page = searchParams.get('page') ?? '1';
+  const search = searchParams.get('search') ?? '';
 
   const handleClick = (url: string) => {
     const id = Number((url.match(/\d+/g) ?? [0, 0])[1]);
 
-    /*navigate(`/${id}?page=${page}`);*/
+    push(`/${id}?page=${page}&search=${search}`);
   };
   return (
     <button type="button" data-testid="openDetailedCardButton" className="card" onClick={() => handleClick(item.url)}>

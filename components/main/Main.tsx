@@ -14,7 +14,7 @@ function Main({ list, all }: MainProps) {
     <>
       <div className="main-container">
         <CardList list={list} />
-{/*        <Outlet />*/}
+        {/*        <Outlet />*/}
         <Flyout />
       </div>
       <Pagination all={Math.ceil(all / 10)} />

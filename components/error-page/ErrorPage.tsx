@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 function ErrorPage() {
   return (
@@ -9,8 +9,8 @@ function ErrorPage() {
         <b>404</b> <i>error happens suddenly</i>
       </p>
       <p style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-        <Link to="/">Home</Link>
-        <Link to="..">Previous page</Link>
+        <Link href="/">Home</Link>
+        <Link href="..">Previous page</Link>
       </p>
     </div>
   );
