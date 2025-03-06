@@ -12,8 +12,12 @@
     "prepare": "cd .. && npx husky forms/.husky"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.6.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "react-router": "^7.2.0",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
