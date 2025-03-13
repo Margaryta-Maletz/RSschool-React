@@ -1,25 +1,30 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { Countries } from './components/types/types.ts';
+import { getCountries } from './components/utils/getCountries.ts';
+import Card from './components/card/Card.tsx';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [countries, setCountries] = useState<Countries[]>([]);
 
+  useEffect(() => {
+    (async () => {
+      const data = await getCountries();
+      setCountries(data);
+    })();
+  }, []);
   return (
-    <>
-      <div></div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      {countries.map(({ name, region, population, flags }, ind) => (
+        <Card
+          key={`${name}${ind}`}
+          name={name}
+          region={region}
+          population={population}
+          flags={flags}
+        />
+      ))}
+    </div>
   );
 }
 

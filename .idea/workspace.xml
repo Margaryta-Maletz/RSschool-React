@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93312317-055c-4eb5-ac9d-0c00e431b852" name="Changes" comment="feat: add controlled form with validation" />
+    <list default="true" id="93312317-055c-4eb5-ac9d-0c00e431b852" name="Changes" comment="init: install app">
+      <change afterPath="$PROJECT_DIR$/performance/src/components/card/Card.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/performance/src/components/card/Card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/performance/src/components/types/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/performance/src/components/utils/getCountries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/performance/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/performance/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/performance/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/performance/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/performance/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/performance/src/App.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="forms" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,9 +49,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "D:\\RS school React\\RSschool-React\\forms\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Pug/Jade",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "prettierjs.PrettierConfiguration.Package": "D:\\RS school React\\RSschool-React\\performance\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "D:\\RS school React\\RSschool-React\\performance\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -62,19 +71,7 @@
       <recent name="D:\RS school React\RSschool-React\styles" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.ff">
-    <configuration name="Card" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Card.test.tsx" />
-      <test-names>
-        <test-name value="Card" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.lint">
     <configuration name="DetailedCard.renders loaded DetailedCard" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
@@ -89,7 +86,7 @@
       <method v="2" />
     </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+      <package-json value="$PROJECT_DIR$/performance/package.json" />
       <command value="run" />
       <scripts>
         <script value="dev" />
@@ -98,21 +95,31 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="ff" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+    <configuration name="format:fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/performance/package.json" />
       <command value="run" />
       <scripts>
-        <script value="ff" />
+        <script value="format:fix" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="test:coverage" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/performance/package.json" />
       <command value="run" />
       <scripts>
-        <script value="test:coverage" />
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="prepare" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/performance/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="prepare" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -120,11 +127,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Vitest.DetailedCard.renders loaded DetailedCard" />
-        <item itemvalue="Vitest.Card" />
-        <item itemvalue="npm.test:coverage" />
-        <item itemvalue="npm.ff" />
+        <item itemvalue="npm.lint" />
+        <item itemvalue="npm.format:fix" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.prepare" />
+        <item itemvalue="Vitest.DetailedCard.renders loaded DetailedCard" />
       </list>
     </recent_temporary>
   </component>
@@ -196,14 +203,7 @@
       <workItem from="1741622819811" duration="7354000" />
       <workItem from="1741712695704" duration="2281000" />
       <workItem from="1741882480618" duration="83000" />
-    </task>
-    <task id="LOCAL-00001" summary="init: copy react-ts template">
-      <option name="closed" value="true" />
-      <created>1727885853367</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1727885853367</updated>
+      <workItem from="1741882574158" duration="6334000" />
     </task>
     <task id="LOCAL-00002" summary="feat: add eslint, prettier and husky">
       <option name="closed" value="true" />
@@ -589,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741629497823</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="init: install app">
+      <option name="closed" value="true" />
+      <created>1741884641047</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1741884641048</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +614,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/app-state-management" />
+                        <option value="forms" />
                       </list>
                     </value>
                   </entry>
@@ -622,7 +630,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CODE_SMELLS_PROFILE" value="Project Default" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix: error button color" />
     <MESSAGE value="fix: fixed after code review" />
     <MESSAGE value="feat: all components changed to functional, added custom hook" />
     <MESSAGE value="feat: add React Router and 404 Error Page" />
@@ -647,7 +654,8 @@
     <MESSAGE value="init: install project" />
     <MESSAGE value="feat: add routing" />
     <MESSAGE value="feat: add controlled form with validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add controlled form with validation" />
+    <MESSAGE value="init: install app" />
+    <option name="LAST_COMMIT_MESSAGE" value="init: install app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
