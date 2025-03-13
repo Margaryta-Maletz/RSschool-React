@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="93312317-055c-4eb5-ac9d-0c00e431b852" name="Changes" comment="feat: add controlled form with validation" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="forms" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2mtAK6dsopftsyJRGHMwi2wHzVh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/RS school React/RSschool-React/forms/.husky",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "D:\\RS school React\\RSschool-React\\forms\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Pug/Jade",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\RS school React\RSschool-React\forms\.husky" />
+      <recent name="D:\RS school React\RSschool-React\.husky" />
+      <recent name="D:\RS school React\RSschool-React\src" />
+      <recent name="D:\RS school React\RSschool-React\pages" />
+      <recent name="D:\RS school React\RSschool-React\styles" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\RS school React\RSschool-React\forms\src\components\utils" />
+      <recent name="D:\RS school React\RSschool-React\forms\src\components\ReactHookForm" />
+      <recent name="D:\RS school React\RSschool-React\forms" />
+      <recent name="D:\RS school React\RSschool-React\components\header" />
+      <recent name="D:\RS school React\RSschool-React\styles" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.ff">
+    <configuration name="Card" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Card.test.tsx" />
+      <test-names>
+        <test-name value="Card" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="DetailedCard.renders loaded DetailedCard" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/DetailedCard.test.tsx" />
+      <test-names>
+        <test-name value="DetailedCard" />
+        <test-name value="renders loaded DetailedCard" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="ff" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="ff" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test:coverage" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test:coverage" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Vitest.DetailedCard.renders loaded DetailedCard" />
+        <item itemvalue="Vitest.Card" />
+        <item itemvalue="npm.test:coverage" />
+        <item itemvalue="npm.ff" />
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="93312317-055c-4eb5-ac9d-0c00e431b852" name="Changes" comment="" />
+      <created>1727885431796</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727885431796</updated>
+      <workItem from="1727885433108" duration="11053000" />
+      <workItem from="1727939646814" duration="43000" />
+      <workItem from="1728407759686" duration="2484000" />
+      <workItem from="1728492317593" duration="6772000" />
+      <workItem from="1729180887006" duration="6862000" />
+      <workItem from="1729785240448" duration="9589000" />
+      <workItem from="1730390383985" duration="9861000" />
+      <workItem from="1730995046580" duration="7044000" />
+      <workItem from="1731599970365" duration="7379000" />
+      <workItem from="1732205609402" duration="6437000" />
+      <workItem from="1732809548815" duration="5398000" />
+      <workItem from="1732815022468" duration="2260000" />
+      <workItem from="1733326174845" duration="621000" />
+      <workItem from="1733414543714" duration="8312000" />
+      <workItem from="1733745197180" duration="347000" />
+      <workItem from="1733758178573" duration="121000" />
+      <workItem from="1734022175014" duration="7037000" />
+      <workItem from="1734624209079" duration="7367000" />
+      <workItem from="1734673970898" duration="127000" />
+      <workItem from="1735229468217" duration="4375000" />
+      <workItem from="1735235417182" duration="4295000" />
+      <workItem from="1735307266654" duration="14222000" />
+      <workItem from="1736529815746" duration="4425000" />
+      <workItem from="1738086053303" duration="1319000" />
+      <workItem from="1738144319546" duration="41000" />
+      <workItem from="1738253204051" duration="8640000" />
+      <workItem from="1738313837750" duration="597000" />
+      <workItem from="1738316484392" duration="526000" />
+      <workItem from="1738344695882" duration="898000" />
+      <workItem from="1738406712752" duration="634000" />
+      <workItem from="1738522887411" duration="21000" />
+      <workItem from="1738598428450" duration="6000000" />
+      <workItem from="1738612346959" duration="534000" />
+      <workItem from="1738650427169" duration="25000" />
+      <workItem from="1738691128085" duration="2222000" />
+      <workItem from="1738857863482" duration="9908000" />
+      <workItem from="1738921535419" duration="644000" />
+      <workItem from="1739297676946" duration="1613000" />
+      <workItem from="1739365078004" duration="1765000" />
+      <workItem from="1739811705922" duration="8977000" />
+      <workItem from="1740046544205" duration="595000" />
+      <workItem from="1740067159961" duration="8228000" />
+      <workItem from="1740496938069" duration="5897000" />
+      <workItem from="1740551936294" duration="126000" />
+      <workItem from="1740672565970" duration="4471000" />
+      <workItem from="1740677427888" duration="6345000" />
+      <workItem from="1741017203781" duration="8551000" />
+      <workItem from="1741085495491" duration="658000" />
+      <workItem from="1741277018337" duration="7327000" />
+      <workItem from="1741290938089" duration="1968000" />
+      <workItem from="1741358831569" duration="10000" />
+      <workItem from="1741358980965" duration="131000" />
+      <workItem from="1741367321190" duration="198000" />
+      <workItem from="1741367596007" duration="1752000" />
+      <workItem from="1741622819811" duration="7354000" />
+      <workItem from="1741712695704" duration="2281000" />
+      <workItem from="1741882480618" duration="83000" />
+    </task>
+    <task id="LOCAL-00001" summary="init: copy react-ts template">
+      <option name="closed" value="true" />
+      <created>1727885853367</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1727885853367</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: add eslint, prettier and husky">
+      <option name="closed" value="true" />
+      <created>1728500655228</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1728500655228</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: add eslint, prettier and husky">
+      <option name="closed" value="true" />
+      <created>1728501150348</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1728501150348</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: add eslint, prettier and husky">
+      <option name="closed" value="true" />
+      <created>1728501528315</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728501528315</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: add two sections">
+      <option name="closed" value="true" />
+      <created>1729187300522</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1729187300522</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: add fetch">
+      <option name="closed" value="true" />
+      <created>1729794709918</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1729794709918</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: add fetch">
+      <option name="closed" value="true" />
+      <created>1730390742852</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730390742852</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: add spinner">
+      <option name="closed" value="true" />
+      <created>1730392809045</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730392809045</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: add spinner">
+      <option name="closed" value="true" />
+      <created>1730392913796</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1730392913796</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: add errorBoundary">
+      <option name="closed" value="true" />
+      <created>1730399322708</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1730399322708</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: add errorBoundary">
+      <option name="closed" value="true" />
+      <created>1730399345665</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1730399345665</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix: return after errorBoundary">
+      <option name="closed" value="true" />
+      <created>1730996447764</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1730996447764</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: rename index.tsx">
+      <option name="closed" value="true" />
+      <created>1730997299351</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1730997299351</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix: rename index.tsx">
+      <option name="closed" value="true" />
+      <created>1730997663574</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1730997663574</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: add style">
+      <option name="closed" value="true" />
+      <created>1731000875447</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1731000875447</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix: error button color">
+      <option name="closed" value="true" />
+      <created>1731001128350</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1731001128350</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix: fixed after code review">
+      <option name="closed" value="true" />
+      <created>1731600928561</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1731600928561</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: all components changed to functional, added custom hook">
+      <option name="closed" value="true" />
+      <created>1731607399819</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1731607399819</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat: add React Router and 404 Error Page">
+      <option name="closed" value="true" />
+      <created>1732211701376</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1732211701376</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat: add DetailedCard component">
+      <option name="closed" value="true" />
+      <created>1732816635012</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1732816635012</updated>
+    </task>
+    <task id="LOCAL-00021" summary="feat: add DetailedCard component">
+      <option name="closed" value="true" />
+      <created>1732817574424</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1732817574424</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix: add Outlet and routing for DetailedCard component">
+      <option name="closed" value="true" />
+      <created>1733422474829</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1733422474829</updated>
+    </task>
+    <task id="LOCAL-00023" summary="feat: add pagination">
+      <option name="closed" value="true" />
+      <created>1734028823065</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1734028823065</updated>
+    </task>
+    <task id="LOCAL-00024" summary="feat: add pagination">
+      <option name="closed" value="true" />
+      <created>1734029663893</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1734029663893</updated>
+    </task>
+    <task id="LOCAL-00025" summary="feat: add the test for DetailedCard">
+      <option name="closed" value="true" />
+      <created>1734630384488</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1734630384488</updated>
+    </task>
+    <task id="LOCAL-00026" summary="feat: add the test for DetailedCard">
+      <option name="closed" value="true" />
+      <created>1734630967979</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1734630967979</updated>
+    </task>
+    <task id="LOCAL-00027" summary="feat: add the test for Card component">
+      <option name="closed" value="true" />
+      <created>1735237824513</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1735237824513</updated>
+    </task>
+    <task id="LOCAL-00028" summary="feat: add the test for Card component">
+      <option name="closed" value="true" />
+      <created>1735239305786</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1735239305786</updated>
+    </task>
+    <task id="LOCAL-00029" summary="feat: add tests">
+      <option name="closed" value="true" />
+      <created>1735322864384</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1735322864384</updated>
+    </task>
+    <task id="LOCAL-00030" summary="feat: add RTK and RTK Query">
+      <option name="closed" value="true" />
+      <created>1738261407188</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1738261407188</updated>
+    </task>
+    <task id="LOCAL-00031" summary="feat: add checkbox and save checkedCards">
+      <option name="closed" value="true" />
+      <created>1738604350039</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1738604350039</updated>
+    </task>
+    <task id="LOCAL-00032" summary="feat: add context">
+      <option name="closed" value="true" />
+      <created>1738867178667</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1738867178667</updated>
+    </task>
+    <task id="LOCAL-00033" summary="feat: add context">
+      <option name="closed" value="true" />
+      <created>1738867939269</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1738867939269</updated>
+    </task>
+    <task id="LOCAL-00034" summary="refactor: fix tests">
+      <option name="closed" value="true" />
+      <created>1739819535869</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1739819535869</updated>
+    </task>
+    <task id="LOCAL-00035" summary="refactor: fix tests">
+      <option name="closed" value="true" />
+      <created>1739820018772</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1739820018772</updated>
+    </task>
+    <task id="LOCAL-00036" summary="feat: Install the Next.js Dependency">
+      <option name="closed" value="true" />
+      <created>1740068696189</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1740068696189</updated>
+    </task>
+    <task id="LOCAL-00037" summary="feat: Create the Next.js Configuration File">
+      <option name="closed" value="true" />
+      <created>1740068768123</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1740068768123</updated>
+    </task>
+    <task id="LOCAL-00038" summary="feat: Update TypeScript Configuration">
+      <option name="closed" value="true" />
+      <created>1740069314610</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1740069314610</updated>
+    </task>
+    <task id="LOCAL-00039" summary="feat: Create the Root Layout">
+      <option name="closed" value="true" />
+      <created>1740071531154</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1740071531154</updated>
+    </task>
+    <task id="LOCAL-00040" summary="feat: Create the Root Layout">
+      <option name="closed" value="true" />
+      <created>1740071624440</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1740071624440</updated>
+    </task>
+    <task id="LOCAL-00041" summary="feat: Create the Root Layout">
+      <option name="closed" value="true" />
+      <created>1740072112389</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1740072112389</updated>
+    </task>
+    <task id="LOCAL-00042" summary="feat: Create the Entrypoint Page">
+      <option name="closed" value="true" />
+      <created>1740072372637</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1740072372637</updated>
+    </task>
+    <task id="LOCAL-00043" summary="feat: add next js pages API">
+      <option name="closed" value="true" />
+      <created>1741019478476</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1741019478477</updated>
+    </task>
+    <task id="LOCAL-00044" summary="feat: add next js pages API">
+      <option name="closed" value="true" />
+      <created>1741019522300</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1741019522300</updated>
+    </task>
+    <task id="LOCAL-00045" summary="feat: add pagination">
+      <option name="closed" value="true" />
+      <created>1741023793323</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1741023793323</updated>
+    </task>
+    <task id="LOCAL-00046" summary="feat: add detailed router">
+      <option name="closed" value="true" />
+      <created>1741025228643</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1741025228644</updated>
+    </task>
+    <task id="LOCAL-00047" summary="init: install project">
+      <option name="closed" value="true" />
+      <created>1741280765314</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1741280765314</updated>
+    </task>
+    <task id="LOCAL-00048" summary="feat: add routing">
+      <option name="closed" value="true" />
+      <created>1741283469695</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1741283469695</updated>
+    </task>
+    <task id="LOCAL-00049" summary="feat: add controlled form with validation">
+      <option name="closed" value="true" />
+      <created>1741629497823</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1741629497823</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/app-state-management" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CODE_SMELLS_PROFILE" value="Project Default" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="fix: error button color" />
+    <MESSAGE value="fix: fixed after code review" />
+    <MESSAGE value="feat: all components changed to functional, added custom hook" />
+    <MESSAGE value="feat: add React Router and 404 Error Page" />
+    <MESSAGE value="feat: add DetailedCard component" />
+    <MESSAGE value="fix: add Outlet and routing for DetailedCard component" />
+    <MESSAGE value="feat: add the test for DetailedCard" />
+    <MESSAGE value="feat: add the test for Card component" />
+    <MESSAGE value="feat: add tests" />
+    <MESSAGE value="feat: add RTK and RTK Query" />
+    <MESSAGE value="feat: add checkbox and save checkedCards" />
+    <MESSAGE value="feat: add context" />
+    <MESSAGE value="refactor: fix tests" />
+    <MESSAGE value="feat: Install the Next.js Dependency" />
+    <MESSAGE value="feat: Create the Next.js Configuration File" />
+    <MESSAGE value="feat: Update TypeScript Configuration" />
+    <MESSAGE value="feat: Create the Root Layout" />
+    <MESSAGE value="feat: Create the Entrypoint Page" />
+    <MESSAGE value="feat: add next js pages API" />
+    <MESSAGE value="feat: add pagination" />
+    <MESSAGE value="feat: add detailed router" />
+    <MESSAGE value="init:n install project" />
+    <MESSAGE value="init: install project" />
+    <MESSAGE value="feat: add routing" />
+    <MESSAGE value="feat: add controlled form with validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add controlled form with validation" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/card-list/CardList.tsx</url>
+          <line>23</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
