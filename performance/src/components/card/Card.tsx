@@ -7,10 +7,12 @@ const Card: FC<Countries> = (props) => {
 
   return (
     <div className={wrapper}>
-      <h1> {`Card #${props.name.common}`} </h1>
+      <h3> {props.name.common} </h3>
       <div> {props.region}</div>
       <div> {props.population}</div>
-      <img src={props.flags.svg} alt={props.flags.alt ?? 'flag'} width={50} />
+      <div>
+        <img src={props.flags.svg} alt={props.flags.alt ?? 'flag'} width={50} />
+      </div>
     </div>
   );
 };
