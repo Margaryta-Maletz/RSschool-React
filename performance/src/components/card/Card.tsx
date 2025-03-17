@@ -1,20 +1,37 @@
 import style from './Card.module.scss';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Countries } from '../types/types.ts';
 
-const Card: FC<Countries> = (props) => {
-  const { wrapper } = style;
-
-  return (
-    <div className={wrapper}>
-      <h3> {props.name.common} </h3>
-      <div> {props.region}</div>
-      <div> {props.population}</div>
-      <div>
-        <img src={props.flags.svg} alt={props.flags.alt ?? 'flag'} width={50} />
-      </div>
-    </div>
-  );
+type CardProps = Countries & {
+  onClick: () => void;
+  isVisited: boolean;
 };
+
+const Card: FC<CardProps> = memo(
+  ({
+    isVisited,
+    onClick,
+    name: { common },
+    region,
+    population,
+    flags: { svg, alt },
+  }) => {
+    const { wrapper, visited } = style;
+
+    return (
+      <div
+        className={`${wrapper} ${isVisited ? visited : ''}`}
+        onClick={onClick}
+      >
+        <h3> {common} </h3>
+        <div> {region}</div>
+        <div> {population}</div>
+        <div>
+          <img src={svg} alt={alt ?? 'flag'} width={50} />
+        </div>
+      </div>
+    );
+  }
+);
 
 export default Card;

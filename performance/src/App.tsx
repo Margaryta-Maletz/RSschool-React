@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useMemo, useState } from 'react';
 import './App.css';
 import { Countries } from './components/types/types.ts';
 import { getCountries } from './components/utils/getCountries.ts';
@@ -10,68 +10,64 @@ function App() {
   const [searchName, setSearchName] = useState<string>('');
   const [sortKey, setSortKey] = useState<string>('name');
   const [sortOrder, setSortOrder] = useState<string>('asc');
-  const [filteredData, setFilteredData] = useState(countries);
+  const [visitedCountries, setVisitedCountries] = useState<string[]>([]);
   const regions = new Set(countries.map((el) => el.region));
 
-  const filterAndSortData = (
-    region: string,
-    name: string,
-    key: string,
-    order: string
-  ) => {
-    const updatedData = countries
-      .filter((item) => {
-        const matchesRegion = region === '' || item.region === region;
-        const matchesName =
-          name === '' ||
-          item.name.common.toLowerCase().includes(name.toLowerCase());
-        return matchesRegion && matchesName;
-      })
-      .sort((a, b) => {
-        if (key === 'name') {
-          const comparison = a.name.common.localeCompare(b.name.common);
-          return order === 'asc' ? comparison : -comparison;
-        } else if (key === 'population') {
-          const comparison = a.population - b.population;
-          return order === 'asc' ? comparison : -comparison;
-        }
-        return 0;
-      });
-    setFilteredData(updatedData);
-  };
+  const filteredData = useMemo(
+    () =>
+      countries
+        .filter((item) => {
+          const matchesRegion =
+            selectedRegion === '' || item.region === selectedRegion;
+          const matchesName =
+            searchName === '' ||
+            item.name.common.toLowerCase().includes(searchName.toLowerCase());
+          return matchesRegion && matchesName;
+        })
+        .sort((a, b) => {
+          if (sortKey === 'name') {
+            const comparison = a.name.common.localeCompare(b.name.common);
+            return sortOrder === 'asc' ? comparison : -comparison;
+          } else if (sortKey === 'population') {
+            const comparison = a.population - b.population;
+            return sortOrder === 'asc' ? comparison : -comparison;
+          }
+          return 0;
+        }),
+    [countries, selectedRegion, searchName, sortKey, sortOrder]
+  );
 
   const handleRegionChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const region = event.target.value;
     setSelectedRegion(region);
-    filterAndSortData(region, searchName, sortKey, sortOrder);
   };
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     const name = event.target.value;
     setSearchName(name);
-    filterAndSortData(selectedRegion, name, sortKey, sortOrder);
   };
 
   const handleSortKeyChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const key = event.target.value;
     setSortKey(key);
-    filterAndSortData(selectedRegion, searchName, key, sortOrder);
   };
 
-  // Handle sort order change (asc or desc)
   const handleSortOrderChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const order = event.target.value;
     setSortOrder(order);
-    filterAndSortData(selectedRegion, searchName, sortKey, order);
   };
 
   useEffect(() => {
     (async () => {
       const data = await getCountries();
       setCountries(data);
-      setFilteredData(data);
     })();
   }, []);
+
+  /*  useEffect(
+    () => filterAndSortData(),
+    [countries, selectedRegion, searchName, sortKey, sortOrder]
+  );*/
 
   return (
     <div>
@@ -110,15 +106,29 @@ function App() {
           </select>
         </div>
       </div>
-      {filteredData.map(({ name, region, population, flags }, ind) => (
-        <Card
-          key={`${name}${ind}`}
-          name={name}
-          region={region}
-          population={population}
-          flags={flags}
-        />
-      ))}
+      <div className="list">
+        {filteredData.map(({ name, region, population, flags }, ind) => {
+          const isVisited = visitedCountries.includes(name.common);
+          return (
+            <Card
+              key={`${name}${ind}`}
+              name={name}
+              region={region}
+              population={population}
+              flags={flags}
+              onClick={() => {
+                if (!isVisited) {
+                  setVisitedCountries((countries) => [
+                    ...countries,
+                    name.common,
+                  ]);
+                }
+              }}
+              isVisited={isVisited}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
