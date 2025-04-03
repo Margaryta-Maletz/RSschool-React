@@ -1,4 +1,4 @@
-export interface Countries {
+export interface Country {
   name: {
     common: string;
   };
@@ -9,4 +9,8 @@ export interface Countries {
     svg: string;
     alt?: string;
   };
+}
+
+export interface CountryWithId extends Country {
+  id: string;
 }
